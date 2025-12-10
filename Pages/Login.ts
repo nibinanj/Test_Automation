@@ -5,6 +5,11 @@ import { config } from "../Utils/environment";
 export class LoginPage {
     page: Page;
     baseUrl: string;
+
+    async homepagevalidation(){
+      await this.goToLoginPage();
+
+    }
     
     constructor(page: Page) {
     this.page = page;
@@ -13,7 +18,7 @@ export class LoginPage {
     }
 
     async goToLoginPage(): Promise<void> {
-    await this.page.goto(this.baseUrl);
+    // await this.page.goto(this.baseUrl);
     await this.page.waitForLoadState('networkidle');
     console.log('Login page loaded:', this.page.url());
   }
